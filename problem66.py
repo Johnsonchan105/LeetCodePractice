@@ -5,7 +5,7 @@ class Solution(object):
         :rtype: List[int]
         """
         if(digits[len(digits)-1] + 1 < 10):
-            digits[len(digits)-1] = digits[len(digits)-1] + 1;
+            digits[len(digits)-1] = digits[len(digits)-1] + 1
             return digits
         else:
             if(len(digits) == 1):
