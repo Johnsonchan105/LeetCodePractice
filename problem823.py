@@ -1,0 +1,17 @@
+class Solution(object):
+    def numFactoredBinaryTrees(self, arr):
+        MOD = 10 ** 9 + 7
+        N = len(arr)
+        arr.sort()
+        dp = [1] * N
+        index = {x: i for i, x in enumerate(arr)}
+        for i, x in enumerate(arr):
+            for j in xrange(i):
+                if x % arr[j] == 0: #A[j] will be left child
+                    right = x / arr[j]
+                    if right in index:
+                        dp[i] += dp[j] * dp[index[right]]
+                        dp[i] %= MOD
+
+        return sum(dp) % MOD
+        
